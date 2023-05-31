@@ -14,3 +14,21 @@ Moj Kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
 -jak się wykorzystuje petle for 
 -jak tworzyc funkcje
 -jak uzywac tablic
+
+
+2023-04-22
+Moj Kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
+Poznałem podstawy języka C, styczność miałem z c++ i szczerze mówiąc trochę się różnią.
+
+
+2023-05-06
+Moj Kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
+nauczyłem się tworzyć procesy, podstaw dotyczących ich jak i polecenia Man który jest dość pomocny.
+
+20.05.2023
+Moj Kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
+O socketach oraz sygnałami w c/C++ nieukrywam że były to najcięższe zajęcia dotychczas a wiedza bardzo obszerna.
+Na samych zajęciach ponieważ wszystko szło w szybkim tempie nie wszystko załapałem dlatego będę musiał poszukać w dokumentacjach żeby zrobić zadania.
+Sam temat jest ciekawy a zadania wydają się bardzo trudne.
+
+
