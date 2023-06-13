@@ -38,11 +38,15 @@ else
 	mv $f_pliku $f_pliku.sh
 fi
 
+
 cwi1.4
 
 #/bin/bash
 
-if [ $(ls | wc -l) -gt 5 ]; then
+pliki=`find -maxdepth 1 -type f | wc -l`
+
+if [ $pliki -gt 5 ]; then
         echo "W bieżącym katalogu jest więcej niż 5 plików"
 fi
+
 
