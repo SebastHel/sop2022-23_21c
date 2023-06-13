@@ -1,32 +1,62 @@
 1.Konfiguracja VirtualBoxa:
 -Utworzyłem nową Maszyne Virtualną dałem jej odpowiednią nazwę i wybrałem Debian.
+
 -Wybrałem odpowiednią ilość ramu ponieważ minimum jest 128Mb a recomended jest 512Mb ja wybrałem 512Mb żeby szybciej się zainstalowało.
+
 -Tworzę nowy dysk virtualny do wyboru mam VDI, VHD,VMDK ja wybrałem VDI ponieważ jest to natywny format VirtualBoxa czyli będzie dział dla wszystkich systemów operacyjnych.
+
 -wybrałem dynamicznie przydzielany rozmiar dysku nie tracę miejsca na dysku, nie przeszkadza mi czekanie na zalakowanie większej ilości danych podczas pracy na dynamicznym przydzielaniu.
+
 -Wybrałem 2GB obraz dysku wirtualnego ponieważ jest zalecane wybranie właśnie 2GB dla systemu bez graficznego interfejsu.
+
 -W ustawieniach ogólnych nie wprowadzam zmian ponieważ system jest przeznaczony do demonstracji i nie potrzebuję w nim dodatkowych opcji.
--W "System" ustawiam kolejność butowania zostawiając jedynie dysk twardy ponieważ skożystam z trybu jedno razowego uruchamienia z płyty nie zmieniam opcji procesora ponieważ jeden mi w zupełności wystarczy reszte opcji zostawiam bez zmian ponieważ nie chcę obciążać maszyny a .
+
+-W "System" ustawiam kolejność butowania zostawiając jedynie dysk twardy ponieważ skorzystam z trybu jedno razowego uruchamienia z płyty,
+nie zmieniam opcji procesora ponieważ jeden mi w zupełności wystarczy reszte opcji zostawiam bez zmian ponieważ nie chcę obciążać maszyny.
+
 -W "Ekran" niewprowadzam zmian ponieważ nie będę używał tego w celach graficznych.
--W "sieci" do wyboru mam Nat który daje dostęp do internetu z maszyny wirtualnej,bridged który daje możliwość bezpośredniego dostępu do sieci,wewnętrzna sieci która umożliwia komunikacje pomiędzy urządzeniami w tej samej sieci jak i izolowana karta sieciowa która daje dostęp
- pomiędzy komputerem na którym jest postawiona maszyna wirtualna a samą maszyną wirtualną ustawiam sieć Nat ja wybrałem w typie kartę Desktopową ponieważ potrzebuję tylko to do zainstalowania Debiana W reszcie opcji nie wprowadzam zmian.
+
+-W "sieci" do wyboru mam Nat który daje dostęp do internetu z maszyny wirtualnej,bridged który daje możliwość bezpośredniego dostępu do sieci,
+wewnętrzna sieci która umożliwia komunikacje pomiędzy urządzeniami w tej samej sieci jak i izolowana karta sieciowa która daje dostęp
+ pomiędzy komputerem na którym jest postawiona maszyna wirtualna a samą maszyną wirtualną ustawiam sieć Nat,
+
+ja wybrałem w typie kartę Desktopową ponieważ potrzebuję tylko to do zainstalowania Debiana W reszcie opcji nie wprowadzam zmian.
 -Nie koprzystam z portów szeregowych ponieważ nie będę z nich korzystał.
 
 2.Instalowanie systemu Debian:
 -wystartowałem Zwykły start żeby maszyna nie działała mi w tle.
+
 -wybieram napęd optyczny i puszczam go z iso debiana po czym restartuje maszyne i klikam f12 klikam c żeby wbrać bootowanie jednorazowe z płyty.
+
 -wybieram instalacje tekstową ponieważ chcę jak najszybciej zainstalować samą maszynę a interfejs graficzny nie jest mi potrzebny tylko by mi zasoby zabierał.
+
 -wybieram język Angielski ponieważ szybciej znajdę błąd jeżeli będzię niż w innym języku.
+
 -wybieram lokalizacje wpierw klikam Europe potem klikam Poland ponieważ później gdy będę ściągał pakiety będę miał zaproponowaną poprawną wartość.
+
 -wybieram język klawiatury American, Angielski by zapobiec problemów przy zmianie danych pomiędzy maszynami.
+
 -Niezmieniam Hostname, Domain Name zostawiam puste ponieważ nie mam domeny,ustawiam hasło Rootowi, ustawiam nazwę użytkownika user po czym ustawiam dla niego hasło.
+
 -Ustawiam Przypisuje całą przestrzeń do jednej partcyj ponieważ maszyna wirtualna nie będzie używana po instalacji więc nie potrzebuje oddzielnych partycji żeby nie utracić danych,
-W guided -Use entire disk and set up LVM możemy utworzyć partycję na cały dysk z LVM(Logical Volume Manager) który odpowiada za zarządzanie przestrzenią pamięci jak i pozwala łączyć różne partycję w jedną partycję.
-Natomiast W Guided- Use enitre disk and set up encrypted LVM jest to samo co wcześniej tylko w tym wypadku jest włączone szyfrowanie na LVM w Manualu można ustawić ISCSI czyli możliwość podłączenia dysk przez sieć, jak i możliwość ręcznego tworzenia partycji,
+W guided -Use entire disk and set up LVM możemy utworzyć partycję na cały dysk z LVM(Logical Volume Manager),
+który odpowiada za zarządzanie przestrzenią pamięci jak i pozwala łączyć różne partycję w jedną partycję.
+Natomiast W Guided- Use enitre disk and set up encrypted LVM jest to samo co wcześniej tylko w tym wypadku jest włączone,
+szyfrowanie na LVM w Manualu można ustawić ISCSI czyli możliwość podłączenia dysk przez sieć, jak i możliwość ręcznego tworzenia partycji,
 Trzeba Stworzyć tablice Partycji, można w nim skonfigurować Raida.
--Wybieram file system Ext4 ponieważ jest to najnowsza wersja Ext i ma większe limity niż inne wersje, Ext3 - wydajność w porównaniu z Ext4 jest mniejsza jak i same limity, Ext2 jest jeszcze starszy niż Ext3 mniej wydajny i nie ma mechanizmu księgowania które 2 wyższe wersje posiadają.
-Brtfs- umożliwia tworzenie Raidów posiada kompresje i zarządzanie wolumenami,XFS System plików przeznaczony do pracy serwerowych pozwala obsługiwać Liste dostępów do plików, JFS obsługuje duże rozmiary partycji nawet do 32PB,Fat16 używane w dosie wersja 16 bitowa pozwalała na stworzenie partycji 4GB małe rozmiary plików 2GB,
+
+-Wybieram file system Ext4 ponieważ jest to najnowsza wersja Ext i ma większe limity niż inne wersje,
+Ext3 - wydajność w porównaniu z Ext4 jest mniejsza jak i same limity,
+
+Ext2 jest jeszcze starszy niż Ext3 mniej wydajny i nie ma mechanizmu księgowania które 2 wyższe wersje posiadają.
+Brtfs- umożliwia tworzenie Raidów posiada kompresje i zarządzanie wolumenami,
+
+XFS System plików przeznaczony do pracy serwerowych pozwala obsługiwać Liste dostępów do plików,
+
+JFS obsługuje duże rozmiary partycji nawet do 32PB,Fat16 używane w dosie wersja 16 bitowa pozwalała na stworzenie partycji 4GB małe rozmiary plików 2GB,
 Fat32 nowsza wersja fat16 tym razem w wersji 32bitowej.SWAP został stworzony gdy wielkość pliku przekraczała ilość ramu.
--W ustawieniach Patrycji możemy nazwać ustawiam bootableflag na on ponieważ system będzie się bootował z tej partycji, możemy ustawić sposób użytkowania,Reserved blocks odpowiada za to że jak będą jakieś błędy na dysku to zostaną zremapowana ta przestrzeń na tym dysku,
+-W ustawieniach Patrycji możemy nazwać ustawiam bootableflag na on ponieważ system będzie się bootował z tej partycji,
+możemy ustawić sposób użytkowania,Reserved blocks odpowiada za to że jak będą jakieś błędy na dysku to zostaną zremapowana ta przestrzeń na tym dysku,
  jak i wyboru punkt montowania,
 / - patrycja systemowa
 /home - patrycja na katoloogi domowe
